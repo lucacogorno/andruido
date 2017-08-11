@@ -32,6 +32,7 @@ public class NewProductActivity extends Activity {
     EditText prodName;
     EditText prodQuant;
     EditText prodPrice;
+    EditText prodDescr;
     Button addButton;
 
     private static String requestURL = "http://webdev.disi.unige.it/~S4110217/create_product.php";
@@ -44,6 +45,7 @@ public class NewProductActivity extends Activity {
         prodName = (EditText) findViewById(R.id.inputName);
         prodQuant = (EditText) findViewById(R.id.inputQuantity);
         prodPrice = (EditText) findViewById(R.id.inputPrice);
+        prodDescr = (EditText) findViewById(R.id.prod_descr);
 
         addButton = (Button) findViewById(R.id.addButton);
 
@@ -77,6 +79,7 @@ public class NewProductActivity extends Activity {
         String name;
         String quantity;
         String price;
+        String description;
         URL reqURL;
         @Override
         protected void onPreExecute() {
@@ -84,16 +87,18 @@ public class NewProductActivity extends Activity {
             name = prodName.getText().toString();
             quantity = prodQuant.getText().toString();
             price = prodPrice.getText().toString();
+            description = prodDescr.getText().toString();
 
         }
 
         @Override
         protected String doInBackground(String... params) {
             try {
-                query = String.format("name=%s&quantity=%s&price=%s",
+                query = String.format("name=%s&quantity=%s&price=%s&description=%s",
                         URLEncoder.encode(name, charset),
                         URLEncoder.encode(quantity, charset),
-                        URLEncoder.encode(price, charset));
+                        URLEncoder.encode(price, charset),
+                        URLEncoder.encode(description, charset));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
