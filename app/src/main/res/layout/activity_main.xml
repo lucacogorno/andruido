@@ -7,6 +7,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.cogor.lpaaproject.MainActivity">
 
+    <fragment
+        android:name="com.murach.tipcalculator.FragmentItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/textView"
         android:text="@string/welcome"
