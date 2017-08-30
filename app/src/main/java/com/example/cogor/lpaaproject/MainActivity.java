@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                        ItemFragment itemFragment = (ItemFragment) getFragmentManager().findFragmentById(R.id.itemfragment);
+                        getFragmentManager().beginTransaction().replace(R.id.itemfragment, itemFragment, itemFragment.getClass().getSimpleName()).addToBackStack(null).commit();
                 }
             });
         } catch (InterruptedException e) {
