@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lv = (ListView) findViewById(R.id.itemsView);
+        lv = (ListView) findViewById(R.id.listView);
         stringItems = new ArrayList<>();
         try {
             items = new GetItems().execute().get();
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        ItemFragment itemFragment = (ItemFragment) getFragmentManager().findFragmentById(R.id.itemfragment);
-                        getFragmentManager().beginTransaction().replace(R.id.itemfragment, itemFragment, itemFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                        //ItemFragment itemFragment = (ItemFragment) getFragmentManager().findFragmentById(R.id.itemfragment);
+                        //getFragmentManager().beginTransaction().replace(R.id.itemfragment, itemFragment, itemFragment.getClass().getSimpleName()).addToBackStack(null).commit();
                 }
             });
         } catch (InterruptedException e) {
